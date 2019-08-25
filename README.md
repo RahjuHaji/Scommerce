@@ -11,7 +11,7 @@
 	2. Go Cookbook - Aaron Torres, Packt  
 	3. Mastering go - Mihalis Tsoukalos, Packt  
 
-#### 2. Discuss solutions for getting unique number in an array (details in [doc] (./Solutions.md))  
+#### 2. Discuss solutions for getting unique number in an array (details in [doc](./Solutions.md) )  
 
 ## How to run simple Chat App: 
 ### Frontend:
