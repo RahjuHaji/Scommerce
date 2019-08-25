@@ -57,11 +57,12 @@ space complexity is n/k, where k is the number of small arrays, k >= 2
 time complexity in worst case: common_sort(a small array) x k + merge sort() + for(compare every pair) = nlogn*k + nlogn + n/2
 = ~ O(nlogn)
 
-... something happens ...
+## something wrong ...
 return to step 2: "user merge ..."
 what if we don't need to sort any more after step 1 ?! what if we don't need merge sort ?!  
+
 In step 2: don't use merge sort ! k>=2, so we get every first elems in k arrays and pair them.  
-And delete elem which is paried and keep get the first elem in k arrays ulti we catch a elem which cannot be paired. 
+And delete elem which is paried and keep getting the first elem in k arrays ulti we catch a elem which cannot be paired. 
 This is unique number.  
 Time complexity is : sort(small array) * k + pair(n elem - in worst case: the unique elem is in tail) ~ O(nlogn)  
 
