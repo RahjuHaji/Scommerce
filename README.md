@@ -5,7 +5,7 @@
 #### 1. simple Chat app:  
 * Go for backend  
 * React for frontend  
-* MongoDb for database  
+* MongoDb for database  (not available now)
 * Reference:  
 	1. [ GO and React tutorial ](https://tutorialedge.net/projects/chat-system-in-go-and-react/)  
 	2. Go Cookbook - Aaron Torres, Packt  
