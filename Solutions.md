@@ -17,52 +17,53 @@ In addition, we calculate sum of all elems:
 End of this step, we have a Set() which has all value in array, and sum of all elems in array A (sumA).  
 (Note: in Set, one value appears once)
 
-Second, we using for loop to calculate sum of all elem in Set(). This step, we get O(~n/2) ~ O(n) Space complexity and Time complexity.
+Second, we use `for` loop to calculate sum of all elem in Set(). This step, we get O(~n/2) ~ O(n) Space complexity and Time complexity.
 now we have **sumA - sumSet x 2 = unique value**
 
 Let make it clear, O(n) ~ O(n/2) so **Time complexity is O(n)**. 
 
 Let talk about **space complexity**: you need n/2 unit of memory for Set(), n unit of memiory for array A.
-And if GC hasn't freed memory of A array yet (Ex: Strong reference / a global variable or just you wanna keeping it alive - 
+And if GC hasn't freed memory of A array yet (Ex: Strong reference / a global variable or just you wanna keep it alive - 
 in C, you use delete instead of waiting for stop the world, ... maybe If you want this) 
 so now you have 3/2n unit memory.
 Yes, I know I know, here you can free A's memory but in C, this is very easy by using delete. How about in java, python, go, when you
 must wait for gc (don't use System.gc() or something else to call direct gc because I "google" and found that this is ... [suicide](https://stackoverflow.com/questions/2414105/why-is-it-bad-practice-to-call-system-gc) )
 
-So conclusion: 
-  * Using Hashtable (like Set) / Set: I think It is fastest because this is a random array. 
-  But if array is too big (or just your memory is too small) don't use it
+** So conclusion: **  
+  ** Using Hashtable (like Set) / Set: I think It is fastest because this is a random array.**  
+  ** But if array is too big (or just your memory is too small) don't use it**
 
 ### Solution 2: using sort (a-sort-like-externalSort)
-Here, for common sorts, we have nlogn time complexsity
+Here, for common sorts, we have nlogn time complexity
 but I don't want to talk about common sorts, I mean all sort which must load all array to memory.
-I talked a bout it. And when you read the #1 solution, maybe you can ask :" so how to sovle if array is too big or mmemory is too small ?"
+I talked about it. In addition, when you read the #1 solution, maybe you can ask :" then how to sovle the peoblem if array is too big
+or memory is so small ?"
 
 So I talk about external sort, which don't need loading all array to memory.
-I am sorry now, because I don't implement it. I focus on how and why we use it first, about "what is it ? " I think we can talk
-later because it is simple and I set its priority lowest so I can focus on my simple Chat App
+I am sorry now, because I've not implemented it yet. I focus on how and why we use it first, about "what is it ? " I think we can talk
+later because it is easier and I set its priority lowest so I can focus on my simple Chat App. That is my plan.
 
 
 External Sort = two step : 
   1. split/separate array into many small arrays (which can be loaed on my memory)
-  2. sort all small arrays
-  3. use merge sort to merge all small arrays. in the end, array A is sorted
-  4. compare every pair elem in array to find the unique value
+  sort all small arrays
+  2. use merge sort to merge all small arrays. in the end, array A is sorted
+  compare every pair elem in array to find the unique value
 
-We need consider this case because the problem said that array A can be too big.
+We need consider this case because the problem said that array A can be too big to load all in memory.
 
 If we use solution 2: 
-space complexity is n/k, where k is the number of small arrays
-time complexity in worst case: sort(a small array) *k + merge sort() + for(compare every pair) = nlogn*k + nlogn + n/2
+space complexity is n/k, where k is the number of small arrays, k >= 2
+time complexity in worst case: common_sort(a small array) x k + merge sort() + for(compare every pair) = nlogn*k + nlogn + n/2
 = ~ O(nlogn)
 
-... something happens here
-return to step 3 "user merge ..."
-what if we don't need any more sort here ?! what if we don't need merge sort ?! 
-ok, in step 3: don't use merge sort ! we get every first elems in k array and pair them. (first elem in k sorted array is the smallest values)
-so now by get first elem in k array we can pair it. And delete pair of elems ulti we catch a elem which cannot pair. This is unique number.
+... something happens ...
+return to step 2: "user merge ..."
+what if we don't need to sort any more after step 1 ?! what if we don't need merge sort ?!  
+In step 2: don't use merge sort ! k>=2, so we get every first elems in k arrays and pair them.  
+And delete elem which is paried and keep get the first elem in k arrays ulti we catch a elem which cannot be paired. 
+This is unique number.  
+Time complexity is : sort(small array) * k + pair(n elem - in worst case: the unique elem is in tail) ~ O(nlogn)  
 
-and time complexity is : sort(small array) * k + pair(n elem - in worst case: the unique elem is in tail) ~ O(nlogn)
-
-Conlusion: solution 2 get time complexity: O(nlogn) and space complexity (n/k) which k > 0, k is long and k <= n
+**Conlusion: solution 2 get time complexity: O(nlogn) and space complexity O(n/k) which k > 1, k is long and k <= n**
 
