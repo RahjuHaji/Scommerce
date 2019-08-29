@@ -19,7 +19,7 @@ then, please make sure that you have all ... things in your system (your gopath 
 
 
 ### Frontend:
-You can see 3 files in repo, we need 3 files, but that is not enough, we must usr follow commands to create the rest:
+You can see 3 files in repo, we need 3 files, but that is not enough, we must follow commands to create the rest:
 First, we need create a repo using `create-react-app`
 
 `npm install -g create-react-app`  (install nodejs for npm)  
