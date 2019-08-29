@@ -7,7 +7,8 @@
 * React for frontend  
 * MongoDb for database
 
-#### 2. Discuss solutions for getting unique number in an array (details in [doc](./Solutions.md) )  
+#### 2. Discuss solutions for getting unique number in an array (details in [doc](./Solutions.md) and code in `algorithms` folder )  
+
 
 ## How to run simple Todo App:
 1. Make sure you have mongodb and it's enable and config mongdodb in default: localhost:27017 (or config suitable with your system)
