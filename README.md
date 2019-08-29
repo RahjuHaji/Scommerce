@@ -2,20 +2,16 @@
 #### GHN exercises
 
 #### This repo included 2 things:  
-#### 1. simple Chat app:  
+#### 1. simple Todo app:  
 * Go for backend  
 * React for frontend  
-* MongoDb for database  (not available now)
-* Reference:  
-	1. [ GO and React tutorial ](https://tutorialedge.net/projects/chat-system-in-go-and-react/)  
-	2. Go Cookbook - Aaron Torres, Packt  
-	3. Mastering go - Mihalis Tsoukalos, Packt  
+* MongoDb for database
 
 #### 2. Discuss solutions for getting unique number in an array (details in [doc](./Solutions.md) )  
 
-## How to run simple Chat App: 
+## How to run simple Todo App: 
 ### Frontend:
-`cd frontend`   
+`cd frontend`
 `npm start`
 
 ### Backend:
