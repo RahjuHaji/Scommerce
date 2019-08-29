@@ -37,8 +37,17 @@ func main() {
 		bigOSpace++
 	}
 	p("")
-	p("The result: key value exists in map is the unique number")
-	p(Mymap)
+	//p("The result: key value exists in map is the unique number")
+	//p(Mymap)
+
+	keys := make([]string, 0, len(Mymap))
+
+	for k, _ := range Mymap {
+		keys = append(keys, k)
+	}
+
+	fmt.Println("Result:", keys[0])
+
 	p("Time:", bigOTime, "unit")
 	p("Space:", bigOSpace, "unit")
 }
